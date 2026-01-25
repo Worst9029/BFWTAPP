@@ -7,36 +7,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --primary: #3498db; --secondary: #2c3e50; --gold: #f1c40f; --success: #2ecc71; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; color: #333; line-height: 1.6; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; color: #333; line-height: 1.6; overflow-x: hidden; }
         
         /* Header */
-        header { background: var(--secondary); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 90%; top: 0; z-index: 1000; }
-        .logo { font-weight: bold; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
+        header { 
+            background: var(--secondary); 
+            color: white; 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: fixed; 
+            width: 100%; 
+            box-sizing: border-box;
+            top: 0; 
+            z-index: 1000; 
+        }
+        .logo { font-weight: bold; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+        nav { display: flex; align-items: center; }
+        nav a { color: white; text-decoration: none; margin-left: 15px; font-weight: 500; font-size: 0.9rem; }
+        .nav-play { background: var(--primary); padding: 5px 15px; border-radius: 20px; transition: 0.3s; }
+        .nav-play:hover { background: #2980b9; }
 
         /* Hero Section */
-        .hero { background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 20px; margin-top: 60px; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 30px; }
+        .hero { background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 20px; margin-top: 60px; }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; line-height: 1.1; }
+        .hero p { font-size: 1.1rem; max-width: 600px; margin-bottom: 30px; opacity: 0.9; }
         
         /* Bouton Télécharger */
-        .btn-download { background: var(--success); color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-        .btn-download:hover { transform: scale(1.05); filter: brightness(1.1); }
+        .btn-download { background: var(--success); color: white; padding: 16px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.3); display: inline-block; border: none; cursor: pointer; }
+        .btn-download:hover { transform: translateY(-3px); filter: brightness(1.1); }
 
         /* Sections */
-        section { padding: 80px 10%; }
+        section { padding: 60px 10%; }
         h2 { text-align: center; color: var(--secondary); font-size: 2rem; margin-bottom: 40px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
         
-        .card { background: #f9f9f9; padding: 30px; border-radius: 15px; text-align: center; border-bottom: 5px solid var(--primary); }
+        .card { background: #f9f9f9; padding: 30px; border-radius: 15px; text-align: center; border-bottom: 5px solid var(--primary); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
         .card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
 
         /* Règles FFFT */
-        .ffft-box { background: #ecf0f1; padding: 40px; border-radius: 20px; border-left: 10px solid var(--gold); }
+        .ffft-box { background: #ecf0f1; padding: 30px; border-radius: 20px; border-left: 10px solid var(--gold); }
         .rule-item { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px; }
         .rule-item i { color: #e67e22; margin-top: 5px; }
 
-        footer { background: var(--secondary); color: white; text-align: center; padding: 40px; }
+        footer { background: var(--secondary); color: white; text-align: center; padding: 40px; font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav a:not(.nav-play) { display: none; } /* Cache les liens textes sur mobile pour garder le bouton Jouer */
+            section { padding: 50px 5%; }
+        }
     </style>
 </head>
 <body>
@@ -45,15 +68,15 @@
         <div class="logo">🏆 BFT WORLD</div>
         <nav>
             <a href="#concept">Concept</a>
-            <a href="#regles">Règles FFFT</a>
-            <a href="#download">Télécharger</a>
+            <a href="#regles">Règles</a>
+            <a href="https://bftapp-cb713.web.app" class="nav-play">JOUER</a>
         </nav>
     </header>
 
     <section class="hero">
         <h1>L'Arène est sur votre Mobile</h1>
-        <p>Le premier réseau social et compétitif dédié aux passionnés de Babyfoot. Rejoignez la communauté BFT World dès aujourd'hui.</p>
-        <a href="#download" class="btn-download"><i class="fab fa-android"></i> Télécharger l'App (APK)</a>
+        <p>Le premier réseau social compétitif dédié aux passionnés de Babyfoot. Suivez vos stats et défiez vos amis.</p>
+        <a href="#download" class="btn-download"><i class="fas fa-mobile-alt"></i> Installer l'Application</a>
     </section>
 
     <section id="concept">
@@ -94,7 +117,7 @@
             </div>
             <div class="rule-item">
                 <i class="fas fa-check-circle"></i>
-                <p><strong>Fair-Play :</strong> Les secousses (gênes intentionnelles) sont sanctionnées d'un avertissement ou d'un point de pénalité.</p>
+                <p><strong>Fair-Play :</strong> Les secousses intentionnelles sont sanctionnées d'un avertissement ou d'un point de pénalité.</p>
             </div>
         </div>
     </section>
@@ -103,20 +126,20 @@
         <h2>Installation de l'Application</h2>
         <p>BFT World est disponible sur tous les téléphones. Choisissez votre version :</p>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto;">
             
-            <div style="text-align: left; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <h3><i class="fab fa-android" style="color: #3DDC84;"></i> Pour Android</h3>
+            <div style="text-align: left; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid #3DDC84;">
+                <h3 style="margin-top:0;"><i class="fab fa-android" style="color: #3DDC84;"></i> Pour Android</h3>
                 <p>1. Téléchargez le fichier <strong>BFWT.apk</strong></p>
                 <p>2. Autorisez les <strong>"Sources Inconnues"</strong> dans vos paramètres.</p>
                 <p>3. Installez et jouez !</p>
                 <a href="BFWT.apk" class="btn-download" style="display: block; text-align: center; margin-top: 20px; background: #3DDC84;">📥 Télécharger l'APK</a>
             </div>
 
-            <div style="text-align: left; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <h3><i class="fab fa-apple" style="color: #000;"></i> Pour iPhone (iOS)</h3>
-                <p>1. Cliquez sur le bouton <strong>"Accéder à l'App"</strong> ci-dessous.</p>
-                <p>2. Dans Safari, appuyez sur l'icône <strong>Partager</strong> <i class="fas fa-external-link-alt"></i>.</p>
+            <div style="text-align: left; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid #000;">
+                <h3 style="margin-top:0;"><i class="fab fa-apple" style="color: #000;"></i> Pour iPhone (iOS)</h3>
+                <p>1. Cliquez sur le bouton <strong>"Accéder"</strong> ci-dessous.</p>
+                <p>2. Dans Safari, appuyez sur l'icône <strong>Partager</strong> <i class="fas fa-upload"></i>.</p>
                 <p>3. Choisissez <strong>"Sur l'écran d'accueil"</strong>.</p>
                 <a href="https://bftapp-cb713.web.app" class="btn-download" style="display: block; text-align: center; margin-top: 20px; background: #000;">📱 Accéder à l'App</a>
             </div>
@@ -125,9 +148,8 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 BFT World - Babyfoot World Tournament. Site non-officiel affilié à la passion du football de table.</p>
+        <p>&copy; 2026 BFT World - Babyfoot World Tournament.<br>Le réseau social de l'élite du babyfoot.</p>
     </footer>
 
 </body>
-
 </html>
