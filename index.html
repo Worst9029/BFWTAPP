@@ -1,1 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>BFT World - Le Réseau du Babyfoot</title>
+    
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2829/2829818.png">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2829/2829818.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root { 
+            --primary: #3498db; 
+            --secondary: #2c3e50; 
+            --gold: #f1c40f; 
+            --success: #2ecc71; 
+            --purple: #8e44ad;
+            --orange: #e67e22;
+            --light: #f4f4f4;
+        }
+        
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; color: #333; line-height: 1.6; overflow-x: hidden; scroll-behavior: smooth; }
+        
+        header { 
+            background: var(--secondary); 
+            color: white; 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: fixed; 
+            width: 100%; 
+            box-sizing: border-box;
+            top: 0; 
+            z-index: 1000; 
+        }
+        .logo { font-weight: bold; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+        nav { display: flex; align-items: center; }
+        nav a { color: white; text-decoration: none; margin-left: 15px; font-weight: 500; font-size: 0.9rem; }
+        .nav-play { background: var(--primary); padding: 8px 20px; border-radius: 20px; font-weight: bold; }
 
+        .version-banner {
+            background: var(--gold);
+            color: #000;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero { 
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); 
+            height: 65vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            color: white; 
+            padding: 0 20px;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; line-height: 1.1; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; opacity: 0.9; }
+        
+        .btn-download { 
+            background: var(--success); 
+            color: white; 
+            padding: 16px 35px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            transition: 0.3s; 
+            display: inline-block; 
+            border: none; 
+        }
+        .btn-download:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+        section { padding: 70px 10%; }
+        h2 { text-align: center; color: var(--secondary); font-size: 2.2rem; margin-bottom: 40px; }
+        h2::after { content: ''; width: 50px; height: 4px; background: var(--primary); display: block; margin: 10px auto; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        
+        .card { background: white; padding: 35px; border-radius: 20px; text-align: center; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card:hover { transform: translateY(-10px); }
+        .card i { font-size: 3rem; margin-bottom: 20px; color: var(--primary); }
+
+        /* Icone Custom Babyfoot */
+        .babyfoot-icon {
+            width: 80px;
+            height: 50px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            position: relative;
+        }
+        .stickman { font-size: 25px; color: var(--secondary); }
+        .table-line {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .ffft-box { background: #fff; padding: 30px; border-radius: 20px; border-left: 10px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .rule-item { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px; }
+
+        .install-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .badge-update { background: #fff3cd; color: #856404; padding: 10px; border-radius: 10px; font-size: 0.85rem; display: block; margin: 15px 0; border: 1px solid #ffeeba; }
+
+        footer { background: var(--secondary); color: white; text-align: center; padding: 40px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav a:not(.nav-play) { display: none; }
+            section { padding: 50px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">⚽ BFT WORLD</div>
+        <nav>
+            <a href="#concept">Concept</a>
+            <a href="#competition">Défis</a>
+            <a href="#regles">Règles</a>
+            <a href="https://bftapp-cb713.web.app" class="nav-play">JOUER</a>
+        </nav>
+    </header>
+
+    <div class="version-banner">
+        🚀 NOUVEAU : La Version 2.0 est en ligne ! Nouveau système de Team et interface optimisée.
+    </div>
+
+    <section class="hero">
+        <h1>Prenez le contrôle du Terrain</h1>
+        <p>Le premier réseau social dédié aux passionnés de Babyfoot. Enregistrez vos scores, gérez votre équipe et grimpez au sommet de la hiérarchie.</p>
+        <a href="#download" class="btn-download"><i class="fas fa-mobile-alt"></i> Installer l'Application</a>
+    </section>
+
+    <section id="concept" style="background-color: var(--light);">
+      <h2>L'Expérience BFT World</h2>
+      <div class="grid">
+          <div class="card">
+              <div class="babyfoot-icon">
+                  <i class="fas fa-user stickman"></i>
+                  <i class="fas fa-user stickman"></i>
+                  <div class="table-line"></div>
+              </div>
+              <h3>Lancer un Match</h3>
+              <p>Défiez vos adversaires sur le terrain en un clic. Enregistrez vos scores en direct et validez vos victoires.</p>
+          </div>
+          <div class="card">
+              <i class="fas fa-users"></i> <h3>Créer ou Rejoindre une Team</h3>
+              <p>Fondez votre équipe avec vos amis ou rejoignez une écurie existante pour participer à la gloire collective.</p>
+          </div>
+          <div class="card">
+              <i class="fas fa-user-friends"></i> <h3>Réseau de Joueurs</h3>
+              <p>Ajoutez vos rivaux, suivez leurs stats et recevez des alertes dès qu'un défi est lancé proche de vous.</p>
+          </div>
+      </div>
+    </section>
+
+    <section id="competition">
+        <h2>Devenez le Meilleur sur la Table</h2>
+        <div class="grid">
+            <div class="card" style="border-bottom: 5px solid var(--primary);">
+                <i class="fas fa-exchange-alt" style="color: var(--primary);"></i> <h3>Modes de Jeu</h3>
+                <p>Configurations possibles : <strong>1 VS 1</strong>, <strong>1 VS 2</strong> ou <strong>2 VS 2</strong>.</p>
+            </div>
+
+            <div class="card" style="border-bottom: 5px solid var(--purple);">
+                <i class="fas fa-chart-line" style="color: var(--purple);"></i> <h3>Amassez les Points</h3>
+                <p>Chaque victoire vous rapporte des points BFT. Cumulez-les pour grimper dans le classement mondial.</p>
+            </div>
+
+            <div class="card" style="border-bottom: 5px solid var(--gold);">
+                <i class="fas fa-medal" style="color: var(--gold);"></i> <h3>Titres de Prestige</h3>
+                <p>Débloquez des <strong>titres exclusifs</strong>. Saurez-vous décrocher le grade de "Légende du Tapis Vert" ?</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="regles" style="background: var(--light);">
+        <h2>Règles Officielles (FFFT)</h2>
+        <div class="ffft-box">
+            <div class="rule-item">
+                <i class="fas fa-ban" style="color: var(--orange);"></i>
+                <p><strong>Pas de Roulettes :</strong> La barre ne doit pas effectuer une rotation de plus de 360° avant ou après la frappe.</p>
+            </div>
+            <div class="rule-item">
+                <i class="fas fa-handshake-angle" style="color: var(--success);"></i>
+                <p><strong>Engagement :</strong> Chaque remise en jeu aux 5 demis doit être précédée d'un "Prêt ?" validé par l'adversaire.</p>
+            </div>
+            <div class="rule-item">
+                <i class="fas fa-circle-check" style="color: var(--primary);"></i>
+                <p><strong>Pissette & Reprise :</strong> En compétition FFFT, les tirs dits "pissettes" et les reprises sont totalement autorisés.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="download">
+        <h2>Installation & Mise à jour</h2>
+        <div class="grid">
+            <div class="install-card" style="border-top: 5px solid #3DDC84;">
+                <h3 style="color: #3DDC84;"><i class="fab fa-android"></i> Android</h3>
+                <p>1. Téléchargez le fichier <strong>BFWT.apk</strong>.</p>
+                <p>2. Autorisez les sources inconnues dans vos paramètres.</p>
+                <a href="BFWT.apk" class="btn-download" style="background: #3DDC84; width: 100%; text-align: center; box-sizing: border-box;">📥 Télécharger l'APK</a>
+            </div>
+
+            <div class="install-card" style="border-top: 5px solid #000;">
+                <h3 style="color: #000;"><i class="fab fa-apple"></i> iPhone (iOS)</h3>
+                <p>1. Cliquez sur <strong>"Accéder à l'App"</strong>.</p>
+                <p>2. Dans Safari, faites <strong>Partager</strong> <i class="fas fa-upload"></i>.</p>
+                <p>3. Choisissez <strong>"Sur l'écran d'accueil"</strong> pour installer l'icône.</p>
+                <span class="badge-update">
+                    <i class="fas fa-magic"></i> <strong>Mise à jour automatique :</strong> Sur iOS, les joueurs reçoivent les nouveautés instantanément sans aucun téléchargement.
+                </span>
+                <a href="https://bftapp-cb713.web.app" class="btn-download" style="background: #000; width: 100%; text-align: center; box-sizing: border-box;">📱 Accéder à l'App</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>⚽ BFT WORLD</strong><br>Le réseau social de l'élite du babyfoot.<br>© 2026 - Version 2.0.1</p>
+    </footer>
+
+</body>
+</html>
